@@ -1,0 +1,12 @@
+<div class="wrapper">
+   <progress-bar></progress-bar>
+
+   <h2 class="text-h2">Select problem areas</h2>
+
+      <div class="answers">
+          <answer-option [checkbox]="true" *ngFor="let option of answers" [answer]="option" (click)="selected = option" [selected]="selected == option"></answer-option>
+          <primary-button [disabled]="selected === undefined" label="Continue" (click)="handleOnContinue()"></primary-button>
+          <secondary-button label="Skip" (click)="handleOnSkip()"></secondary-button>
+      </div>
+
+</div>

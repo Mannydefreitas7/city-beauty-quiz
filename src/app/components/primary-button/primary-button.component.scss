@@ -1,0 +1,27 @@
+@import "./../../styles/variables";
+
+button {
+  appearance: none;
+  border: none;
+  height: 83px;
+  cursor: pointer;
+  width: 100%;
+  background-color: $accent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 36px;
+
+  &:hover:not(:disabled) {
+    background-color: $accent-alt;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  & span.text-h3 {
+    color: #000 !important;
+  }
+}

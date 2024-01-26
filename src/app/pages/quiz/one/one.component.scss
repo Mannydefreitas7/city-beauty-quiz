@@ -1,0 +1,10 @@
+.wrapper {
+  max-width: 507px;
+  margin: 0 auto;
+
+  .answers {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
