@@ -1,1 +1,32 @@
-<p>two works!</p>
+<div class="wrapper">
+  <progress-bar></progress-bar>
+</div>
+<div class="cb-row">
+  <div class="cb-left">
+    <img
+      class="d-none d-md-block"
+      width="141px"
+      height="100%"
+      [src]="steps[selected].image + '-d.png'"
+    />
+    <img
+      class="d-md-none"
+      width="100%"
+      [src]="steps[selected].image + '-m.jpg'"
+    />
+  </div>
+  <div class="cb-right">
+    <h2 class="text-h2">How would you describe your skin?</h2>
+    <slider [(selected)]="selected" [steps]="steps"></slider>
+    <div class="answers">
+      <primary-button
+        label="Continue"
+        (click)="handleOnContinue()"
+      ></primary-button>
+      <secondary-button
+        label="Skip"
+        (click)="handleOnSkip()"
+      ></secondary-button>
+    </div>
+  </div>
+</div>

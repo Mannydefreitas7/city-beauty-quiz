@@ -9,12 +9,19 @@ import { SixComponent } from './pages/quiz/six/six.component';
 import { SevenComponent } from './pages/quiz/seven/seven.component';
 import { EightComponent } from './pages/quiz/eight/eight.component';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { IStep } from '../types/IStep';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuizService {
   currentIndex = 0;
+  selectedSkin: IStep | undefined;
+
+  selectSkin(step: IStep) {
+    this.selectedSkin = step;
+  }
+
   getQuestions() {
     return [
       {

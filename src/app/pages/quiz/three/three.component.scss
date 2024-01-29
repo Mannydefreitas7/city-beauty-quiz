@@ -1,0 +1,38 @@
+.wrapper {
+  max-width: 507px;
+  margin: 0 auto;
+}
+
+.cb-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.cb-right {
+  max-width: 507px;
+  flex-grow: 1;
+}
+
+.cb-left {
+  width: 400px;
+}
+
+.d-flex {
+  gap: 48px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .cb-row {
+    flex-direction: column;
+  }
+  .cb-left, .cb-right {
+    width: 100%;
+  }
+}

@@ -1,1 +1,38 @@
-<p>three works!</p>
+<div class="wrapper">
+  <progress-bar></progress-bar>
+</div>
+<div class="layout cb-row">
+  <div class="cb-left">
+    <img width="100%" src="/assets/woman-crepe-halfway-there.gif" />
+  </div>
+
+  <div class="cb-right">
+    <h3 class="text-h3">Halfway there!</h3>
+    <h2 class="text-h2">
+      Why do people give up protecting and hydrating their skin?
+    </h2>
+    <p class="text-body text-bold">
+      The No. 1 reason is using the wrong products that just aren’t effective
+    </p>
+    <p class="text-body">
+      You’ll achieve much more in just a few weeks of starting City Beauty’s
+      treatment.
+    </p>
+
+    <p class="text-body">
+      Our primary goal is to deliver deep, long-lasting hydration that will
+      prevent harsh aging and reduce the appearance of thinning, crepey skin.
+      Visibly achieve healthy, supple skin with us.
+    </p>
+    <div class="answers">
+      <primary-button
+        label="Continue"
+        (click)="handleOnContinue()"
+      ></primary-button>
+      <secondary-button
+        label="Skip"
+        (click)="handleOnSkip()"
+      ></secondary-button>
+    </div>
+  </div>
+</div>

@@ -21,6 +21,18 @@ body {
   user-select: none;
 }
 
+.cb-popover {
+
+  & > .tippy-box {
+    background: $background-alt !important;
+    border-radius: 0;
+    & .tippy-arrow {
+      color: $background-alt !important;
+    }
+  }
+}
+
+
 .text {
   &-h1 {
     font-family: "Unna", serif;
@@ -47,7 +59,11 @@ body {
   &-body {
     font-size: 16px;
     line-height: 25px;
-    color: $white;
+    color: $white !important;
+  }
+
+  &-bold {
+    font-weight: 700;
   }
 
   &-disclaimer {

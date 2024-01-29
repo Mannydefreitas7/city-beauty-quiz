@@ -1,13 +1,20 @@
 <div class="wrapper">
-   <div>
-      <h1 class="text-h1">Achieve Perfectly <span class="italic">Smooth</span>, <span class="italic">Youthful</span> Skin</h1>
-      <p class="text-body">Get a personalized skin care treatment</p>
-   </div>
-     <div>
-      <h2 class="text-h2">Choose your goal</h2>
-      <div class="answers">
-          <answer-option *ngFor="let option of answers" [answer]="option" [selected]="selected == option" (click)="handleOnSelect(option)"></answer-option>
-      </div>
-   </div>
+  <div>
+    <h1 class="text-h1">
+      Achieve Perfectly <span class="italic">Smooth</span>,
+      <span class="italic">Youthful</span> Skin
+    </h1>
+    <p class="text-body">Get a personalized skin care treatment</p>
+  </div>
+  <div>
+    <h2 class="text-h2">Choose your goal</h2>
+    <div class="answers">
+      <answer-option
+        *ngFor="let option of answers"
+        [answer]="option"
+        [selected]="selected == option"
+        (click)="handleOnSelect(option)"
+      ></answer-option>
+    </div>
+  </div>
 </div>
-

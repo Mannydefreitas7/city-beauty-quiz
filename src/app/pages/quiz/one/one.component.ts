@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProgressBarComponent } from '../../../components/progress-bar/progress-bar.component';
 import { Router } from '@angular/router';
 import { IAnswer } from '../../../../types/IAnswer';
@@ -6,6 +6,7 @@ import { AnswerOptionComponent } from '../../../components/answer-option/answer-
 import { NgFor } from '@angular/common';
 import { PrimaryButtonComponent } from '../../../components/primary-button/primary-button.component';
 import { SecondaryButtonComponent } from '../../../components/secondary-button/secondary-button.component';
+import { QuizService } from '../../../quiz.service';
 
 @Component({
   selector: 'app-one',
@@ -22,7 +23,7 @@ import { SecondaryButtonComponent } from '../../../components/secondary-button/s
 })
 export class OneComponent {
   selected: IAnswer | undefined;
-  constructor(private router: Router) {}
+  quizService = inject(QuizService);
   answers: IAnswer[] = [
     {
       label: 'Loose skin on thighs and legs',
@@ -47,10 +48,10 @@ export class OneComponent {
   ];
 
   handleOnContinue() {
-    this.router.navigate(['quiz/two']);
+    this.quizService.next();
   }
 
   handleOnSkip() {
-    this.router.navigate(['quiz/two']);
+    this.quizService.next();
   }
 }

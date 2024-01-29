@@ -31,13 +31,13 @@ import {
 import { CreateOptions } from '@ngneat/helipopper/lib/tippy.types';
 
 @Component({
-  selector: 'slider',
+  selector: 'slider-number',
   standalone: true,
   imports: [FormsModule, NgbPopoverModule, TippyDirective],
-  templateUrl: './slider.component.html',
-  styleUrl: './slider.component.scss',
+  templateUrl: './slider-number.component.html',
+  styleUrl: './slider-number.component.scss',
 })
-export class SliderComponent implements AfterViewInit {
+export class SliderNumberComponent implements AfterViewInit {
   @Input() selected = 0;
   @Input() steps: IStep[] = [];
   @ViewChild('content') content: ElementRef<HTMLDivElement> | undefined;
@@ -55,6 +55,7 @@ export class SliderComponent implements AfterViewInit {
   };
 
   ngAfterViewInit() {
+    this.steps.pop();
     this.showPopover();
   }
 
@@ -64,9 +65,14 @@ export class SliderComponent implements AfterViewInit {
   }
 
   showPopover() {
-    if (document && this.content && this.tpl) {
+    if (
+      document &&
+      this.content &&
+      this.tpl &&
+      this.content.nativeElement.children.length > 0
+    ) {
       const selectedElement = this.content.nativeElement.children.item(
-        this.selected
+        this.selected - 1
       ) as HTMLElement;
 
       this.tippy = this.tippyService.create(

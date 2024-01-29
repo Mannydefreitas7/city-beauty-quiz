@@ -2,14 +2,20 @@
   <ng-template #tpl>
     <span>{{ steps[selected].name }}</span>
   </ng-template>
-  <!-- <h2 style="color: white">{{ steps[selected].name }}</h2> -->
+  <div class="labels">
+    @if (steps[0]) {
+    <span class="text-body">1</span>
+    } @if (steps[steps.length - 1]) {
+    <span class="text-body">{{ steps.length }}</span>
+    }
+  </div>
   <div class="wrapper">
     <input
       class="slider"
       type="range"
       list="ranges"
-      [min]="0"
-      [max]="steps.length - 1"
+      [min]="1"
+      [max]="steps.length"
       [value]="selected"
       id="myRange"
       name="test"

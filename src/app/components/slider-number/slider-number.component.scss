@@ -25,7 +25,12 @@
     text-align: right;
   }
 
+  &-top {
+
+  }
+
 }
+
 
 .wrapper {
 
@@ -35,7 +40,7 @@
   margin: 24px 0 12px 0;
   height: 7px;
   gap: 70px;
-  background: $background-alt;
+  background: $background;
 
 
 
@@ -44,13 +49,16 @@
     width: 100%;
     justify-content: space-between;
     position: absolute;
+    height: 100%;
     z-index: 10;
+    gap: 3px;
+    overflow: hidden;
 
 
     option {
-      background-color: $background;
+      background-color: $background-alt;
       height: 100%;
-      width: 2px;
+      width: 100%;
     }
   }
 
@@ -73,7 +81,7 @@
    width: 24px;
    height: 24px;
    border: solid 2px $background;
-   background: $accent;
+   background: $background-alt;
    border-radius: 50%;
    cursor: pointer;
    margin-top: -15px;
@@ -84,7 +92,7 @@
   .segment {
     width: 3px;
     height: 7px;
-    background-color: $background;
+    background-color: $white;
   }
 
   .thumb {
