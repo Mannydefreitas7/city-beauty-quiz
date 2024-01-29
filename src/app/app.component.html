@@ -1,6 +1,7 @@
-<section class="container">
-   <img src="/assets/city-beauty-logo.png" alt="City Beauty" width="85px" />
-   <router-outlet />
+<section class="cb-container">
+  <slider [steps]="steps"></slider>
+  <img src="/assets/city-beauty-logo.png" alt="City Beauty" width="85px" />
+  <ng-container
+    *ngComponentOutlet="quizList[quizService.currentIndex].component"
+  />
 </section>
-
-

@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { QuizService } from './../../quiz.service';
+import { Component, Input, inject } from '@angular/core';
 import { AnswerOptionComponent } from '../../components/answer-option/answer-option.component';
 import { IAnswer } from '../../../types/IAnswer';
 import { NgFor, NgForOf } from '@angular/common';
-import { Router } from '@angular/router';
+import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
-  imports: [AnswerOptionComponent, NgForOf],
+  imports: [AnswerOptionComponent, NgbCarousel, NgForOf],
   standalone: true,
+  providers: [NgbCarousel],
   styleUrl: './intro.component.scss',
 })
 export class IntroComponent {
-  constructor(private router: Router) {}
+  quizService = inject(QuizService);
 
   answers: IAnswer[] = [
     {
@@ -36,6 +38,6 @@ export class IntroComponent {
 
   handleOnSelect(answer: IAnswer) {
     this.selected = answer;
-    this.router.navigate(['quiz/one']);
+    this.quizService.next();
   }
 }

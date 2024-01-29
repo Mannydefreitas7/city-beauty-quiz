@@ -1,4 +1,4 @@
-.container {
+.cb-container {
   max-width: 1200px;
   margin: 0 auto;
   display: block;
@@ -10,7 +10,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .container {
+  .cb-container {
     margin: 0 20px;
     img {
       margin: 20px auto;

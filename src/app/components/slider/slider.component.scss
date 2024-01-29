@@ -1,0 +1,108 @@
+
+@import './../../styles/variables';
+
+.slider-container {
+
+  position: relative;
+  .cb-popover {
+    padding: 2px 5px;
+  //  position: absolute;
+ //   top: 20%;
+    background: $background-alt;
+    color: white;
+
+
+    &:popover-open {
+      width: 200px;
+      height: 100px;
+      position: absolute;
+
+    }
+  }
+
+}
+
+.wrapper {
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 24px 0;
+  height: 7px;
+  gap: 70px;
+  background: $background-alt;
+
+
+
+  datalist {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 10;
+
+
+    option {
+      background-color: $background;
+      height: 100%;
+      width: 2px;
+    }
+  }
+
+  .slider {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    z-index: 40;
+    width: 100%;
+    height: 7px;
+    background-color: transparent;
+
+  }
+
+
+
+  .slider::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+   width: 24px;
+   height: 24px;
+   border: solid 2px $background;
+   background: $accent;
+   border-radius: 50%;
+   cursor: pointer;
+   margin-top: -15px;
+}
+
+
+
+  .segment {
+    width: 3px;
+    height: 7px;
+    background-color: $background;
+  }
+
+  .thumb {
+    width: 25px;
+    height: 25px;
+    background-color: $accent;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    cursor: grab;
+    user-select: none
+
+  }
+
+}
+
+
+.noselect {
+  // -webkit-touch-callout: none !important;
+  // -webkit-user-select: none !important;
+  // -webkit-user-drag: none !important;
+  // -khtml-user-select: none !important;
+  // -moz-user-select: none !important;
+  // -ms-user-select: none !important;
+  // user-select: none !important;
+  }

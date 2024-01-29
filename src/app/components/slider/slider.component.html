@@ -1,0 +1,50 @@
+<div class="slider-container">
+  <ng-template #tpl>
+    <div style="background: red">
+      <h6>Popover title</h6>
+    </div>
+  </ng-template>
+  <h2 style="color: white">{{ steps[selected].name }}</h2>
+  <div class="wrapper">
+    <input
+      class="slider"
+      type="range"
+      list="ranges"
+      [min]="0"
+      [max]="steps.length - 1"
+      [value]="selected"
+      id="myRange"
+      name="test"
+      (click)="onChange($event)"
+      (change)="onChange($event)"
+      [(ngModel)]="selected"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <datalist #content id="ranges">
+      @for (step of steps; track step; let i = $index) {
+      <option [id]="'step-' + i" [value]="step.name"></option>
+      }
+    </datalist>
+
+    <!-- <span
+      #drag
+      class="thumb noselect"
+      id="draggable"
+      (mousedown)="isDragging = true"
+      [draggable]="isDragging"
+      (drag)="onDrag($event)"
+      (dragend)="onDragEnd($event)"
+      (dragstart)="onDragStart($event)"
+    ></span>
+    @for (step of steps; track step; let i = $index) {
+    <span
+      (dragover)="onDragOver($event)"
+      [id]="i"
+      class="segment"
+      dropzone="true"
+    ></span>
+    }
+  </div>
+  <h1>{{ selected }}</h1> -->
+  </div>
+</div>

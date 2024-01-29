@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { QuizService } from '../../quiz.service';
 
 @Component({
   selector: 'progress-bar',
@@ -12,9 +13,9 @@ export class ProgressBarComponent {
   @Input() current: number = 1;
   @Input() total: number = 6;
 
-  constructor(private location: Location) {}
+  quizService = inject(QuizService);
 
   handleOnPrev() {
-    this.location.back();
+    this.quizService.back();
   }
 }

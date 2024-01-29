@@ -3,6 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "../src/app/styles/variables";
 
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+@import './../node_modules/tippy.js/dist/tippy.css';
+@import './../node_modules/tippy.js/themes/light.css';
+@import './../node_modules/tippy.js/animations/scale.css';
+@import 'tippy.js/dist/svg-arrow.css';
+
 * {
   font-family: "Work Sans";
   box-sizing: border-box;
@@ -10,6 +18,7 @@
 
 body {
   background-color: $background;
+  user-select: none;
 }
 
 .text {
@@ -25,6 +34,7 @@ body {
     font-weight: 500;
     line-height: 29px;
     color: $white;
+    margin-bottom: 32px;
   }
 
   &-h3 {
@@ -46,3 +56,5 @@ body {
     color: $white;
   }
 }
+
+
