@@ -1,32 +1,40 @@
 <div class="slider-container">
   <ng-template #tpl>
-    <span>{{ steps[selected].name }}</span>
+    <span *ngIf="steps[selected]">{{ selected + 1 }}</span>
   </ng-template>
   <div class="labels">
     @if (steps[0]) {
-    <span class="text-body">1</span>
+    <span class="text-body">{{ 1 }}</span>
     } @if (steps[steps.length - 1]) {
     <span class="text-body">{{ steps.length }}</span>
     }
   </div>
   <div class="wrapper">
+      <div #background class="background">
+         @for (step of steps; track step; let i = $index) {
+         <div class="tick">
+            <div class="bar" [ngStyle]="getOpacity(i)"></div>
+         </div>
+         }
+      </div>
     <input
+      #input
+      id="temp" 
+      name="temp" 
+      list="markers"
       class="slider"
       type="range"
-      list="ranges"
-      [min]="1"
+      [min]="0"
       [max]="steps.length"
       [value]="selected"
-      id="myRange"
-      name="test"
       (click)="onChange($event)"
       (change)="onChange($event)"
       [(ngModel)]="selected"
       [ngModelOptions]="{ standalone: true }"
     />
-    <datalist #content id="ranges">
+    <datalist #content id="markers">
       @for (step of steps; track step; let i = $index) {
-      <option [id]="'step-' + i" [value]="step.name"></option>
+         <option [id]="'step-' + i" [value]="step.name"></option>
       }
     </datalist>
   </div>

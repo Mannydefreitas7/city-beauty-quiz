@@ -29,18 +29,22 @@ import {
   TippyService,
 } from '@ngneat/helipopper';
 import { CreateOptions } from '@ngneat/helipopper/lib/tippy.types';
+import { NgIf, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'slider-number',
   standalone: true,
-  imports: [FormsModule, NgbPopoverModule, TippyDirective],
+  imports: [FormsModule, NgStyle, NgIf, NgbPopoverModule, TippyDirective],
   templateUrl: './slider-number.component.html',
   styleUrl: './slider-number.component.scss',
 })
 export class SliderNumberComponent implements AfterViewInit {
-  @Input() selected = 0;
+  @Input() selected = 5;
   @Input() steps: IStep[] = [];
+  cloneSteps: IStep[] = [];
   @ViewChild('content') content: ElementRef<HTMLDivElement> | undefined;
+  @ViewChild('input') input: ElementRef<HTMLInputElement> | undefined;
+  @ViewChild('background') background: ElementRef<HTMLDivElement> | undefined;
   @ViewChild('tpl') tpl: TemplateRef<HTMLElement> | undefined;
   @Output() selectedChange = new EventEmitter<number>();
 
@@ -48,43 +52,74 @@ export class SliderNumberComponent implements AfterViewInit {
   private tippyService = inject(TippyService);
 
   congig: Partial<CreateOptions> | undefined = {
-    arrow: true,
+    arrow: false,
     className: 'cb-popover',
-    inlinePositioning: true,
     offset: [0, 15],
   };
 
   ngAfterViewInit() {
-    this.steps.pop();
     this.showPopover();
   }
 
+  getOpacity(index: number) {
+    if (index + 1 >= 10) {
+      return {
+        opacity: '1',
+      };
+    }
+    return {
+      opacity: `0.${index + 1}`,
+    };
+  }
+
   onChange(event: Event) {
-    this.showPopover();
     this.selectedChange.emit(this.selected);
+    this.showPopover();
   }
 
   showPopover() {
     if (
-      document &&
-      this.content &&
+      this.background &&
       this.tpl &&
-      this.content.nativeElement.children.length > 0
+      this.background.nativeElement.children.length > 0
     ) {
-      const selectedElement = this.content.nativeElement.children.item(
-        this.selected - 1
-      ) as HTMLElement;
+      console.log(this.selected);
+      if (
+        this.selected > 0 &&
+        this.selected < this.background.nativeElement.children.length
+      ) {
+        // User is increasing
+        const selectedElement = this.background.nativeElement.children.item(
+          this.selected
+        ) as HTMLElement;
 
-      this.tippy = this.tippyService.create(
-        selectedElement,
-        this.tpl,
-        this.congig
-      );
-      this.tippy.show();
+        this.tippy = this.tippyService.create(selectedElement, this.tpl, {
+          ...this.congig,
+          offset: ({ reference }) => {
+            return [-(reference.width / 2), 15];
+          },
+        });
+      } else if (this.selected == 0) {
+        const selectedElement = this.background.nativeElement.children.item(
+          this.selected
+        ) as HTMLElement;
+
+        this.tippy = this.tippyService.create(selectedElement, this.tpl, {
+          ...this.congig,
+          offset: ({ reference }) => {
+            return [-(reference.width / 2), 15];
+          },
+        });
+      } else {
+        console.warn('error');
+      }
+      this.tippy?.show();
     }
   }
 
   ngOnDestroy() {
-    this.tippy?.destroy();
+    if (this.tippy) {
+      this.tippy?.destroy();
+    }
   }
 }

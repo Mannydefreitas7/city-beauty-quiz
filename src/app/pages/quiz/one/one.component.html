@@ -8,11 +8,11 @@
       [checkbox]="true"
       *ngFor="let option of answers"
       [answer]="option"
-      (click)="selected = option"
-      [selected]="selected == option"
+      (click)="handleOnSelect(option)"
+      [selected]="selected.includes(option)"
     ></answer-option>
     <primary-button
-      [disabled]="selected === undefined"
+      [disabled]="selected.length === 0"
       label="Continue"
       (click)="handleOnContinue()"
     ></primary-button>

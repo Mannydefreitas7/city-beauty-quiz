@@ -1,5 +1,5 @@
 export interface IAnswer {
   label: string;
-  image: string;
+  image?: string;
   selected: boolean;
 }

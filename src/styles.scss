@@ -4,12 +4,12 @@
 @import "../src/app/styles/variables";
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
-@import './../node_modules/tippy.js/dist/tippy.css';
-@import './../node_modules/tippy.js/themes/light.css';
-@import './../node_modules/tippy.js/animations/scale.css';
-@import 'tippy.js/dist/svg-arrow.css';
+@import "./../node_modules/tippy.js/dist/tippy.css";
+@import "./../node_modules/tippy.js/themes/light.css";
+@import "./../node_modules/tippy.js/animations/scale.css";
+@import "tippy.js/dist/svg-arrow.css";
 
 * {
   font-family: "Work Sans";
@@ -22,7 +22,6 @@ body {
 }
 
 .cb-popover {
-
   & > .tippy-box {
     background: $background-alt !important;
     border-radius: 0;
@@ -31,7 +30,6 @@ body {
     }
   }
 }
-
 
 .text {
   &-h1 {
@@ -54,6 +52,7 @@ body {
     font-weight: 500;
     line-height: 24px;
     color: $white;
+    margin-bottom: 0;
   }
 
   &-body {
@@ -72,5 +71,3 @@ body {
     color: $white;
   }
 }
-
-

@@ -11,12 +11,14 @@ import { NgComponentOutlet } from '@angular/common';
 import { SliderComponent } from './components/slider/slider.component';
 import { IStep } from '../types/IStep';
 import { SliderNumberComponent } from './components/slider-number/slider-number.component';
+import { AnswerOptionComponent } from './components/answer-option/answer-option.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     NgComponentOutlet,
+    AnswerOptionComponent,
     SliderComponent,
     SliderNumberComponent,
     IntroComponent,
@@ -29,49 +31,6 @@ export class AppComponent {
   title = 'city-beauty-quiz';
   quizList = inject(QuizService).getQuestions();
   quizService = inject(QuizService);
-
-  steps: IStep[] = [
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-    {
-      name: 'TEST 1',
-      image: '',
-    },
-  ];
 
   constructor(config: NgbCarouselConfig) {
     config.showNavigationArrows = false;

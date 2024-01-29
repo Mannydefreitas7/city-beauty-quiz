@@ -1,1 +1,34 @@
-<p>four works!</p>
+<div class="wrapper">
+  <progress-bar></progress-bar>
+</div>
+<div class="layout cb-row">
+  
+
+  <div class="cb-right">
+    <h2 class="text-h2">
+     How often do you moisturize your skin?
+    </h2>
+    
+    <p class="text-body">
+      Choose your current level to align with your routine:
+    </p>
+
+     <slider-number [(selected)]="selected" [steps]="steps"></slider-number>
+
+     <div class="cb-box">
+         <h5 class="text-body">{{ steps[selected].name }}</h5>
+         <p class="text-body">{{ steps[selected].image }}</p>
+     </div>
+
+    <div class="answers">
+      <primary-button
+        label="Continue"
+        (click)="handleOnContinue()"
+      ></primary-button>
+      <secondary-button
+        label="Skip"
+        (click)="handleOnSkip()"
+      ></secondary-button>
+    </div>
+  </div>
+</div>

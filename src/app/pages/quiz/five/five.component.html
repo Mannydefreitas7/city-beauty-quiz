@@ -1,1 +1,31 @@
-<p>five works!</p>
+<div class="wrapper">
+  <progress-bar></progress-bar>
+</div>
+<div class="layout cb-row">
+  
+
+  <div class="cb-right">
+    <h2 class="text-h2">
+    How much time do you spend on body care daily:
+    </h2>
+    
+ 
+
+    <div class="answers">
+      @for (answer of answers; track answer) {
+          <answer-option (click)="selected = answer"
+      [selected]="selected == answer" [checkbox]="true" type="radio" [answer]="answer"></answer-option>
+      }
+     
+
+      <primary-button
+        label="Continue"
+        (click)="handleOnContinue()"
+      ></primary-button>
+      <secondary-button
+        label="Skip"
+        (click)="handleOnSkip()"
+      ></secondary-button>
+    </div>
+  </div>
+</div>

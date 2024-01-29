@@ -13,4 +13,5 @@ export class AnswerOptionComponent {
   @Input('answer') answer?: IAnswer;
   @Input('selected') selected: boolean = false;
   @Input('checkbox') checkbox: boolean = false;
+  @Input('type') type: 'checkbox' | 'radio' | 'none' = 'checkbox';
 }

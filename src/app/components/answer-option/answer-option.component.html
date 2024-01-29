@@ -1,7 +1,8 @@
-<div class="answer" [ngClass]="{ selected: selected }" *ngIf="answer">
-  <input *ngIf="checkbox" type="checkbox" [checked]="selected" />
+<div class="answer" [ngClass]="{ selected: selected, radio: type == 'radio' || type == 'none' }" *ngIf="answer">
+  <input *ngIf="checkbox" [type]="type" [checked]="selected" />
+  <img src="/assets/❌.png" *ngIf="type == 'none'"  />
   <div class="wrapper">
     <h3 class="text-h3">{{ answer.label }}</h3>
-    <img [src]="answer.image" />
+    <img *ngIf="answer.image" [src]="answer.image" />
   </div>
 </div>

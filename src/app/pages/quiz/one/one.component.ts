@@ -22,7 +22,7 @@ import { QuizService } from '../../../quiz.service';
   styleUrl: './one.component.scss',
 })
 export class OneComponent {
-  selected: IAnswer | undefined;
+  selected: IAnswer[] = [];
   quizService = inject(QuizService);
   answers: IAnswer[] = [
     {
@@ -46,6 +46,15 @@ export class OneComponent {
       selected: false,
     },
   ];
+
+  handleOnSelect(answer: IAnswer) {
+    if (this.selected.includes(answer)) {
+      this.selected = this.selected.filter((a) => a != answer);
+      return;
+    }
+
+    this.selected.push(answer);
+  }
 
   handleOnContinue() {
     this.quizService.next();

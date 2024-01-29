@@ -1,1 +1,48 @@
-<p>six works!</p>
+<div class="wrapper">
+  <progress-bar></progress-bar>
+
+   <h2 class="text-h2">
+   Have you experienced any of these issues
+in your previous skincare attempts? 
+    </h2>
+
+     
+     
+     <div class="answers">
+      @for (answer of answers; track answer) {
+          <answer-option
+            (click)="handleOnSelect(answer)"
+            [selected]="selected.includes(answer)"
+            [checkbox]="true" type="checkbox"
+            [answer]="answer"
+         ></answer-option>
+      }
+
+      <hr />
+
+      <answer-option
+         (click)="handleNoneOfAboveClick()"
+         [selected]="false"
+         type="none"
+         [answer]="{ label: 'None of the Above', selected: false }"
+         ></answer-option>
+
+      <primary-button
+        label="Continue"
+        [disabled]="selected.length === 0 && !noSymptoms"
+        (click)="showThankYouBox = true"
+      ></primary-button>
+      <secondary-button
+        label="Skip"
+        (click)="showThankYouBox = true"
+      ></secondary-button>
+    </div>
+
+    <div *ngIf="showThankYouBox" class="cb-box">
+         <h2 class="text-h2">Thanks for sharing!</h2>
+         <p class="text-body">
+         We’ve discovered that a lot of people have faced the same setbacks. City Beauty has a clear one-step treatment that is easy to follow with long-term results. In less than two minutes, you will feel better than ever. 
+         </p>
+    </div>
+</div>
+

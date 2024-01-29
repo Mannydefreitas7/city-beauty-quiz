@@ -1,0 +1,49 @@
+@import "./../../../styles/variables";
+
+.wrapper {
+  max-width: 507px;
+  margin: 0 auto;
+}
+
+.cb-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.cb-box {
+  padding: 40px 33px;
+  max-width: 507px;
+  background: $background-alt;
+  margin-bottom: 18px;
+  h5 {
+    max-width: 300px;
+    font-weight: bold;
+    font-size: x-large;
+  }
+}
+
+.cb-left {
+  width: 400px;
+}
+
+.d-flex {
+  gap: 48px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .cb-row {
+    flex-direction: column;
+  }
+  .cb-box,
+  .cb-left,
+  .cb-right {
+    width: 100%;
+  }
+}
